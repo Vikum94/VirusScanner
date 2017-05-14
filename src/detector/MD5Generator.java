@@ -14,34 +14,35 @@ import java.security.NoSuchAlgorithmException;
  * Created by Vikum on 5/14/2017.
  */
 public class MD5Generator {
-    private String[] files = Scanner.getAllFiles("C:\\Users\\Vikum\\IdeaProjects\\VirusScanner\\TestVirus");
+    String md5Hash;
 
-    public void generateMD5() throws NoSuchAlgorithmException {
+    public String generateMD5(String fileName) throws NoSuchAlgorithmException {
 
         MessageDigest msgDigest = MessageDigest.getInstance("md5");
-        for (String fileName : files){
-            try {
-                FileInputStream fileIn = new FileInputStream(fileName);
-                BufferedInputStream bufIn = new BufferedInputStream(fileIn);
-                DigestInputStream digestIn = new DigestInputStream(bufIn, msgDigest);
+        try {
+            FileInputStream fileIn = new FileInputStream(fileName);
+            BufferedInputStream bufIn = new BufferedInputStream(fileIn);
+            DigestInputStream digestIn = new DigestInputStream(bufIn, msgDigest);
 
-                while (digestIn.read() != -1) {
-                }
-
-            } catch (IOException ex) {
-                System.out.println("Error while reading " + fileName);
+            while (digestIn.read() != -1) {
             }
 
-            // md5 digestion
-            byte[] hash = msgDigest.digest();
-
-            // to hex convert
-            final StringBuilder builder = new StringBuilder();
-            for (byte b : hash) {
-                builder.append(String.format("%02x", b));
-            }
-            String md5Hash = builder.toString();
+        } catch (IOException ex) {
+            System.out.println("Error while reading " + fileName);
         }
+
+        // md5 digestion
+        byte[] hash = msgDigest.digest();
+
+        // to hex convert
+        final StringBuilder builder = new StringBuilder();
+        for (byte b : hash) {
+            builder.append(String.format("%02x", b));
+        }
+        md5Hash = builder.toString();
+        System.out.printf("\tGenerated MD5 Hash for the file: %s \n", md5Hash);
+        return md5Hash;
+
     }
 
 }

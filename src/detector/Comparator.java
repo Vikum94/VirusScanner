@@ -16,17 +16,21 @@ public class Comparator {
         viruses = Scanner.getAllFiles(path);
     }
 
-    private boolean findVirus(String md5Hash) throws IOException {
+    public boolean findVirus(String md5Hash) throws IOException {
         for (String virus : viruses){
             FileReader fr =  new FileReader(path + "\\"+virus);
             BufferedReader br = new BufferedReader(fr);
             String line;
             while ((line = br.readLine()) != null) {
-                if (line == md5Hash) {
-                    System.out.print("Virus Found: "+virus);
+                if (line.equals(md5Hash)) {
+                    System.out.println("\t####Virus Found");
+                    System.out.printf("\t\t%s\\%s\n",path,virus);
+                    System.out.printf("\t%s\n",line);
+
                     return true;
                 }
             }
+            br.close();
         }
         return false;
     }
