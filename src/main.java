@@ -9,15 +9,15 @@ import java.security.NoSuchAlgorithmException;
  * Created by Vikum on 5/14/2017.
  */
 public class main {
-    private static String virusPath = "";
-    private static String infectedPath = "";
+    private static String virusPath = "src\\Viruses";
+    private static String infectedPath = "src\\TestVirus";
     private static String[] files;
     private static boolean safe = true;
 
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
         System.out.println("Enter a folder to check for viruses: ");
 
-        //if( args != null){infectedPath = args;}
+        //if( args.length != 1){infectedPath = args[1];}
 
         System.out.println("Searching for viruses...");
 
