@@ -40,7 +40,7 @@ public class MD5Generator {
             builder.append(String.format("%02x", b));
         }
         md5Hash = builder.toString();
-        System.out.printf("\tGenerated MD5 Hash for the file: %s \n", md5Hash);
+        System.out.printf("Generated MD5 Hash for the file: %s", md5Hash);
         return md5Hash;
 
     }

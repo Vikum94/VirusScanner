@@ -15,9 +15,10 @@ public class main {
     private static boolean safe = true;
 
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
-        System.out.println("Enter a folder to check for viruses: ");
-
-        //if( args.length != 1){infectedPath = args[1];}
+        System.out.println("Enter files to the folder src\\TestVirus to check for viruses: ");
+        System.out.println("\t---or enter give a command line argument");
+        if( args.length != 1){}
+        else {infectedPath = args[0];}
 
         System.out.println("Searching for viruses...");
 
@@ -36,6 +37,11 @@ public class main {
         }
         if(safe){
             System.out.println("####Safe Folder####");
+        }
+        try {
+            System.in.read();
+        }catch (IOException e){
+            e.printStackTrace();
         }
     }
 }

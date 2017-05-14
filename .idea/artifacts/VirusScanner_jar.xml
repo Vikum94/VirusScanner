@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="VirusScanner:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/VirusScanner_jar</output-path>
+    <root id="archive" name="VirusScanner.jar">
+      <element id="module-output" name="VirusScanner" />
+    </root>
+  </artifact>
+</component>
