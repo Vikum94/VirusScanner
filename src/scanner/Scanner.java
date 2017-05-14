@@ -7,16 +7,20 @@ import java.io.File;
  */
 public class Scanner {
 
-    private static File directory = new File("C:\\Users\\Vikum\\IdeaProjects\\VirusScanner\\src");
-    private static String[] fileNames = directory.list();
+    private static File directory;
+    private static String[] fileNames;
 
-    public static void showFiles(){
+    public static void showFiles(String path){
+        directory = new File(path);
+        fileNames = directory.list();
         for (String fileName : fileNames) {
             System.out.println(fileName);
         }
     }
 
-    public static String[] getAllFiles(){
+    public static String[] getAllFiles(String path){
+        directory = new File(path);
+        fileNames = directory.list();
         return fileNames;
     }
 }

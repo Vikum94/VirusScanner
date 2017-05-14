@@ -7,6 +7,6 @@ public class main {
     static Scanner scan = new Scanner();
 
     public static void main(String[] args) {
-        scan.showFiles();
+        scan.showFiles("C:\\Users\\Vikum\\IdeaProjects\\VirusScanner");
     }
 }
